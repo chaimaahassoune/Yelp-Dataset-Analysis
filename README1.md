@@ -191,7 +191,7 @@ However, for a more accurate understanding of the relationship, it is essential 
 select fans , review_count , Name , yelping_since
 from user 
 order by  fans DESC 
-
+'''
 +------+--------------+-----------+---------------------+
 | fans | review_count | name      | yelping_since       |
 +------+--------------+-----------+---------------------+
@@ -226,7 +226,7 @@ order by  fans DESC
 
 Answer: love review has 1780 , and hate has 232 . so the reviews are more with the word "love" 
 
-```sql
+   ```sql
 SELECT COUNT(*) AS loveReview
 FROM review 
 where text like '%love%'
@@ -237,11 +237,11 @@ where text like '%love%'
 |        1780 |
 +-------------+
 
-```sql
+   ```sql
 SELECT COUNT(*) AS hateReviews
 FROM review 
 where text like '%hate%'
-
+'''
 	+-------------+
 	| hateReviews |
 	+-------------+
@@ -250,13 +250,13 @@ where text like '%hate%'
 
 ### 10. Find the top 10 users with the most fans:
 SQL code used to arrive at answer:
-```sql
+   ```sql
 SELECT id,
 name,fans
 FROM user
 ORDER BY fans DESC
 LIMIT 10
-
+'''
 +------------------------+-----------+------+
 | id                     | name      | fans |
 +------------------------+-----------+------+
@@ -283,17 +283,17 @@ yes they have a deffirent number of review.
 There is a substantial amount of data available, and we cannot adequately explain or draw conclusions solely from the analysis of these two groups 
 SQL code used for analysis:
 
-```sql
+   ```sql
 SELECT 
-    b.city,
-    b.stars,
-    c.category,
-    h.hours,
-    b.review_count,
-    CASE
-	    WHEN hours LIKE "%monday%" THEN 1
-		WHEN hours LIKE "%tuesday%" THEN 2
-		WHEN hours LIKE "%wednesday%" THEN 3
+b.city,
+b.stars,
+c.category,
+h.hours,
+b.review_count,
+CASE
+  WHEN hours LIKE "%monday%" THEN 1
+  WHEN hours LIKE "%tuesday%" THEN 2
+  WHEN hours LIKE "%wednesday%" THEN 3
 		WHEN hours LIKE "%thursday%" THEN 4
 		WHEN hours LIKE "%friday%" THEN 5
 		WHEN hours LIKE "%saturday%" THEN 6
@@ -331,7 +331,7 @@ Open businesses: Average star rating of 3.679
 Closed businesses: Average star rating of 3.520
 
 SQL code used for analysis:
-```sql
+   ```sql
 
 SELECT COUNT(DISTINCT(id)),
 AVG(review_count),
@@ -340,7 +340,7 @@ AVG(stars),
 is_open
 FROM business
 GROUP BY is_open
-
+'''
 ### 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 #### i. Indicate the type of analysis you chose to do:
 Predicting the overall star rating for a business
@@ -384,7 +384,7 @@ Lastly, cross-referencing these hypotheses with the stars column in the business
 
 #### iv. Provide the SQL code you used to create your final dataset:
 
-```sql
+   ```sql
 
 SELECT 
     b.name, b.review_count , 
@@ -397,3 +397,4 @@ FROM business b INNER JOIN review r
 ON b.id = r.business_id
 WHERE sentiment IS NOT NULL
 ORDER BY name;
+'''

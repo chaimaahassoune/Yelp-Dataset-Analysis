@@ -59,7 +59,7 @@ WHERE id IS NULL OR
       compliment_cool IS NULL OR 
       compliment_funny IS NULL OR 
       compliment_writer IS NULL OR 
-      compliment_photos IS NULL
+compliment_photos IS NULL
 
 ### 4. Statistical Summary for Specific Columns
 
